@@ -1,0 +1,31 @@
+---
+const cookie = Astro.url.searchParams.get("cookie");
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
+    <form method="post" action="/api/cookie" autocomplete="off">
+      <div>
+        <label for="cookieName">Cookie name</label>
+        <br />
+        <input type="text" id="cookieName" name="cookieName" />
+      </div>
+      <div>
+        <label for="cookieValue">Cookie value</label>
+        <br />
+        <input type="text" id="cookieValue" name="cookieValue" />
+      </div>
+      <button type="submit">Set cookie and redirect back</button>
+    </form>
+    <br />
+    {cookie && <div>Cookie that was supposed to be set is {cookie}</div>}
+  </body>
+</html>
